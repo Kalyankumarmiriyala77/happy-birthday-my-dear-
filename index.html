@@ -7,10 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <audio autoplay loop>
-        <source src="assets/music.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+ <audio id="bg-music" loop>
+  <source src="assets/music.mp3" type="audio/mpeg" />
+</audio>
+
+
+    <!-- Floating hearts -->
+    <div class="hearts-container"></div>
+
     <div class="container">
         <img src="assets/her_photo.jpg" alt="Happy Birthday" class="her-photo" />
         <h1>Happy Birthday My Love ❤️</h1>
@@ -21,15 +25,29 @@
     </div>
 
     <script>
-        for (let i = 0; i < 60; i++) {
-            let heart = document.createElement("div");
-            heart.className = "heart";
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDelay = Math.random() * 20 + "s";
-            heart.innerHTML = "❤";
-            document.body.appendChild(heart);
+        const heartsContainer = document.querySelector('.hearts-container');
+        for (let i = 0; i < 30; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDelay = (Math.random() * 5) + 's';
+            heart.innerText = '❤️';
+            heartsContainer.appendChild(heart);
         }
-    </script>
+        window.addEventListener("DOMContentLoaded", function () {
+    const audio = document.getElementById("bg-music");
 
+    // Try to autoplay — may need interaction on some browsers
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // If blocked, wait for user interaction
+        document.body.addEventListener("click", () => {
+          audio.play();
+        }, { once: true });
+      });
+    }
+  });
+    </script>
 </body>
 </html>
