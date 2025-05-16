@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container">
+        <img src="assets/her_photo.jpg" alt="Happy Birthday" class="her-photo" />
+        <h1>Happy Birthday My Love ❤️</h1>
+        <p>On this special day, I just want you to know how much you mean to me.<br>
+        You bring joy, beauty, and light into my life every day.<br>
+        I’m so lucky to have you. Here’s to more memories, love, and laughter together.<br>
+        <strong>Love you always!<br>— Kalyan</strong></p>
+    </div>
+
+    <script>
+        for (let i = 0; i < 30; i++) {
+            let heart = document.createElement("div");
+            heart.className = "heart";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDelay = Math.random() * 10 + "s";
+            heart.innerHTML = "❤";
+            document.body.appendChild(heart);
+        }
+    </script>
+
+</body>
+</html>
