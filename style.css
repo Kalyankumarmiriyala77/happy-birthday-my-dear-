@@ -17,7 +17,7 @@ body {
     margin: 0 auto;
     animation: fadeIn 3s ease-in-out;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 .her-photo {
